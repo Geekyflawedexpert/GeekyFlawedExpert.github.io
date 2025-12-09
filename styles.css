@@ -8,14 +8,14 @@
 }
 
 :root {
-    --bg-dark: #0a0e27;
-    --bg-darker: #050810;
+    --bg-dark: #000000;
+    --bg-darker: #0a0a0a;
     --primary: #00ff9f;
     --secondary: #00d4ff;
     --accent: #ff006e;
     --text-light: #e0e0e0;
     --text-dim: #a0a0a0;
-    --card-bg: #1a1f3a;
+    --card-bg: #111111;
     --terminal-green: #33ff00;
 }
 

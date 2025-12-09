@@ -111,7 +111,7 @@ function initProfileImage() {
 }
 
 // Update Last Updated Date
-function initUpdated() {
+function updateLastUpdated() {
     const lastUpdatedElement = document.getElementById('lastUpdated');
     if (lastUpdatedElement) {
         const date = new Date();
