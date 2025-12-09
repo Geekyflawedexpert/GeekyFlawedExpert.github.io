@@ -1,0 +1,31 @@
+/* Retro/Creative Theme inspired by dimden.dev */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Roboto+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0a0e27;
+    --bg-darker: #050810;
+    --primary: #00ff9f;
+    --secondary: #00d4ff;
+    --accent: #ff006e;
+    --text-light: #e0e0e0;
+    --text-dim: #a0a0a0;
+    --card-bg: #1a1f3a;
+    --terminal-green: #33ff00;
+    --glow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}

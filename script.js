@@ -1,21 +1,127 @@
-// Check if profile image exists and show it if it does
+// Retro Website JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Neural Network Canvas Animation
-    initNeuralNetwork();
+    // Initialize all animations
+    initStarfield();
+    initTypingEffect();
+    initProfileImage();
+    updateLastUpdated();
+    initSmoothScroll();
     
+    console.log('%c🚀 Welcome to my retro site!', 'color: #00ff9f; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00ff9f;');
+    console.log('%c✨ Built with passion and lots of caffeine', 'color: #00d4ff; font-size: 14px;');
+});
+
+// Starfield Background Animation
+function initStarfield() {
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+    
+    const stars = [];
+    const numStars = 200;
+    
+    // Create stars
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 1.5,
+            speed: Math.random() * 0.5 + 0.1,
+            opacity: Math.random()
+        });
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        stars.forEach(star => {
+            // Update position
+            star.y += star.speed;
+            if (star.y > canvas.height) {
+                star.y = 0;
+                star.x = Math.random() * canvas.width;
+            }
+            
+            // Twinkle effect
+            star.opacity += (Math.random() - 0.5) * 0.1;
+            star.opacity = Math.max(0.3, Math.min(1, star.opacity));
+            
+            // Draw star
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.radius * 2);
+            gradient.addColorStop(0, `rgba(0, 255, 159, ${star.opacity})`);
+            gradient.addColorStop(1, `rgba(0, 212, 255, 0)`);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+        });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
+
+// Typing Effect
+function initTypingEffect() {
+    const text = "Computer Science Student | ML Enthusiast | Open to Research";
+    const typedElement = document.getElementById('typedText');
+    
+    if (!typedElement) return;
+    
+    let index = 0;
+    const speed = 80;
+    
+    function type() {
+        if (index < text.length) {
+            typedElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    setTimeout(type, 1000);
+}
+
+// Profile Image Handler
+function initProfileImage() {
     const profileImg = document.getElementById('profileImg');
     
-    // Test if the profile image loads successfully
+    if (!profileImg) return;
+    
     profileImg.addEventListener('load', function() {
-        profileImg.classList.add('visible');
+        this.classList.add('visible');
     });
     
-    // If image fails to load, keep it hidden
     profileImg.addEventListener('error', function() {
-        profileImg.style.display = 'none';
+        this.style.display = 'none';
     });
+    
+    // Trigger load event if image is already cached
+    if (profileImg.complete) {
+        profileImg.classList.add('visible');
+    }
+}
 
-    // Smooth scrolling for anchor links (if you add navigation later)
+// Update Last Updated Date
+function initUpdated() {
+    const lastUpdatedElement = document.getElementById('lastUpdated');
+    if (lastUpdatedElement) {
+        const date = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        lastUpdatedElement.textContent = date.toLocaleDateString('en-US', options);
+    }
+}
+
+// Smooth Scrolling
+function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -25,182 +131,132 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth',
                     block: 'start'
                 });
+            } else if (this.getAttribute('href') === '#') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             }
         });
     });
+}
 
-    // Add animation on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe all sections
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(20px)';
-        section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(section);
-    });
-
-    // Update last updated date automatically
-    const footer = document.querySelector('.footer p');
-    if (footer && footer.textContent.includes('Last Updated')) {
-        const date = new Date();
-        const options = { year: 'numeric', month: 'long' };
-        footer.textContent = `Last Updated: ${date.toLocaleDateString('en-US', options)}`;
+// Create floating particles
+function createFloatingParticles() {
+    const container = document.querySelector('.particles-container');
+    if (!container) return;
+    
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 4 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.backgroundColor = '#00ff9f';
+        particle.style.borderRadius = '50%';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.opacity = Math.random() * 0.5 + 0.2;
+        particle.style.animation = `float ${Math.random() * 10 + 10}s ease-in-out infinite`;
+        particle.style.boxShadow = '0 0 10px #00ff9f';
+        container.appendChild(particle);
     }
+}
 
-    // Skill tag click animation
-    document.querySelectorAll('.skill-tag').forEach(tag => {
-        tag.addEventListener('click', function() {
-            this.style.animation = 'pulse 0.5s';
-            setTimeout(() => {
-                this.style.animation = '';
-            }, 500);
-        });
+createFloatingParticles();
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
     });
+}, {
+    threshold: 0.1
 });
 
-// Add CSS for pulse animation
+document.querySelectorAll('.section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+});
+
+// Konami Code Easter Egg
+let konamiCode = [];
+const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.key);
+    konamiCode = konamiCode.slice(-10);
+    
+    if (konamiCode.join('') === konamiPattern.join('')) {
+        activateMatrixMode();
+    }
+});
+
+function activateMatrixMode() {
+    document.body.style.animation = 'rainbow 2s infinite';
+    setTimeout(() => {
+        document.body.style.animation = '';
+    }, 5000);
+    
+    console.log('%c🎮 KONAMI CODE ACTIVATED! 🎮', 'color: #ff006e; font-size: 24px; font-weight: bold;');
+}
+
+// Add rainbow animation
 const style = document.createElement('style');
 style.textContent = `
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.1); }
+    @keyframes rainbow {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
     }
 `;
 document.head.appendChild(style);
 
-// Console message for developers
-console.log('%c👋 Welcome to my resume site!', 'color: #3498db; font-size: 16px; font-weight: bold;');
-console.log('%cInterested in the code? Check out the GitHub repo!', 'color: #2c3e50; font-size: 14px;');
+// Mouse trail effect (subtle)
+let mouseX = 0;
+let mouseY = 0;
+let trailElements = [];
 
-// Neural Network Canvas Animation
-function initNeuralNetwork() {
-    const canvas = document.getElementById('neuralNetwork');
-    const ctx = canvas.getContext('2d');
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
     
-    // Set canvas size
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+    // Throttle trail creation
+    if (Math.random() > 0.9) {
+        createTrail(mouseX, mouseY);
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+});
+
+function createTrail(x, y) {
+    const trail = document.createElement('div');
+    trail.style.position = 'fixed';
+    trail.style.left = x + 'px';
+    trail.style.top = y + 'px';
+    trail.style.width = '4px';
+    trail.style.height = '4px';
+    trail.style.borderRadius = '50%';
+    trail.style.background = 'radial-gradient(circle, rgba(0,255,159,0.6), transparent)';
+    trail.style.pointerEvents = 'none';
+    trail.style.zIndex = '9999';
+    trail.style.animation = 'fadeOut 1s forwards';
     
-    // Neural network nodes
-    const nodes = [];
-    const numNodes = 50;
-    const maxDistance = 150;
+    document.body.appendChild(trail);
     
-    // Create nodes
-    class Node {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.radius = Math.random() * 2 + 1;
-        }
-        
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            
-            // Bounce off edges
-            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            
-            // Keep in bounds
-            this.x = Math.max(0, Math.min(canvas.width, this.x));
-            this.y = Math.max(0, Math.min(canvas.height, this.y));
-        }
-        
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#3498db';
-            ctx.fill();
-        }
-    }
-    
-    // Initialize nodes
-    for (let i = 0; i < numNodes; i++) {
-        nodes.push(new Node());
-    }
-    
-    // Draw connections
-    function drawConnections() {
-        for (let i = 0; i < nodes.length; i++) {
-            for (let j = i + 1; j < nodes.length; j++) {
-                const dx = nodes[i].x - nodes[j].x;
-                const dy = nodes[i].y - nodes[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < maxDistance) {
-                    ctx.beginPath();
-                    ctx.moveTo(nodes[i].x, nodes[i].y);
-                    ctx.lineTo(nodes[j].x, nodes[j].y);
-                    const opacity = (1 - distance / maxDistance) * 0.5;
-                    ctx.strokeStyle = `rgba(52, 152, 219, ${opacity})`;
-                    ctx.lineWidth = 1;
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-    
-    // Animation loop
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Update and draw nodes
-        nodes.forEach(node => {
-            node.update();
-            node.draw();
-        });
-        
-        // Draw connections
-        drawConnections();
-        
-        requestAnimationFrame(animate);
-    }
-    
-    animate();
+    setTimeout(() => {
+        trail.remove();
+    }, 1000);
 }
 
-// Add typing effect to header
-function typeEffect() {
-    const subtitle = document.querySelector('.subtitle');
-    if (!subtitle) return;
-    
-    const text = subtitle.textContent;
-    subtitle.textContent = '';
-    subtitle.style.opacity = '1';
-    
-    let i = 0;
-    const speed = 50;
-    
-    function type() {
-        if (i < text.length) {
-            subtitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
+const fadeOutStyle = document.createElement('style');
+fadeOutStyle.textContent = `
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+            transform: scale(0);
         }
     }
-    
-    setTimeout(type, 500);
-}
-
-// Call typing effect
-setTimeout(typeEffect, 1000);
+`;
+document.head.appendChild(fadeOutStyle);

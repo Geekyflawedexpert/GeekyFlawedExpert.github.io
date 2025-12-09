@@ -3,40 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Resume</title>
+    <title>YOUR NAME.DEV</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Animated Neural Network Background -->
-    <canvas id="neuralNetwork"></canvas>
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+    
+    <!-- Floating particles -->
+    <div class="particles-container"></div>
     
     <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <div class="profile-section">
-                <img src="profile.jpg" alt="Profile Picture" class="profile-img" id="profileImg">
-                <h1>Your Name</h1>
-                <p class="subtitle">Computer Science Student | Aspiring Researcher</p>
+        <!-- Retro Header -->
+        <header class="retro-header">
+            <div class="ascii-art">
+                <pre id="asciiName">
+ ╦ ╦╔═╗╦  ╦  ╔═╗  ╦ ╦╔═╗╦═╗╦  ╔╦╗
+ ╠═╣║╣ ║  ║  ║ ║  ║║║║ ║╠╦╝║   ║║
+ ╩ ╩╚═╝╩═╝╩═╝╚═╝  ╚╩╝╚═╝╩╚═╩═╝═╩╝
+                </pre>
             </div>
             
-            <div class="contact-info">
-                <a href="mailto:your.email@university.edu"><i class="fas fa-envelope"></i> your.email@university.edu</a>
-                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="tel:+1234567890"><i class="fas fa-phone"></i> +1 (234) 567-890</a>
+            <div class="pixel-avatar">
+                <img src="profile.jpg" alt="Profile" class="pixel-img" id="profileImg">
+            </div>
+            
+            <div class="glitch-text">
+                <h1 data-text="YOUR NAME">YOUR NAME</h1>
+                <div class="typing-effect">
+                    <span id="typedText"></span><span class="cursor">|</span>
+                </div>
+            </div>
+            
+            <div class="retro-badges">
+                <img src="https://img.shields.io/badge/Status-Open_to_Research-brightgreen?style=for-the-badge" alt="Status">
+                <img src="https://img.shields.io/badge/Location-University_Name-blue?style=for-the-badge" alt="Location">
+                <img src="https://img.shields.io/badge/GPA-3.X%2F4.0-orange?style=for-the-badge" alt="GPA">
             </div>
         </header>
 
-        <!-- About Section -->
-        <section class="section">
-            <h2><i class="fas fa-user"></i> About Me</h2>
-            <p>
-                I am a motivated [Year] student at [University Name] pursuing a degree in [Major]. 
-                I am passionate about [research interests] and seeking research internship opportunities 
-                to contribute to cutting-edge projects in [specific field]. My interests include 
-                [list 2-3 specific topics].
-            </p>
+        <!-- Quick Links Bar -->
+        <div class="quick-links">
+            <a href="#about"><i class="fas fa-user"></i> About</a>
+            <a href="#projects"><i class="fas fa-code"></i> Projects</a>
+            <a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a>
+            <a href="mailto:your.email@university.edu"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="resume.pdf" download><i class="fas fa-download"></i> Resume</a>
+        </div>
+
+        <!-- Terminal-style About Section -->
+        <section class="section terminal-section" id="about">
+            <div class="terminal-header">
+                <span class="terminal-btn close"></span>
+                <span class="terminal-btn minimize"></span>
+                <span class="terminal-btn maximize"></span>
+                <span class="terminal-title">~/about_me</span>
+            </div>
+            <div class="terminal-body">
+                <p class="terminal-line"><span class="prompt">$</span> cat about.txt</p>
+                <p class="terminal-output">
+                    Hey there! 👋 I'm a passionate [Year] student at [University Name] studying [Major].
+                    <br><br>
+                    I'm on a quest to push the boundaries of AI and machine learning. Currently seeking 
+                    research internship opportunities where I can contribute to innovative projects and 
+                    learn from brilliant minds.
+                    <br><br>
+                    <span class="highlight">Research Interests:</span> Machine Learning • Deep Learning • Computer Vision • NLP
+                    <br>
+                    <span class="highlight">Fun Fact:</span> I debug with print statements and I'm not ashamed 🐛
+                </p>
+            </div>
         </section>
 
         <!-- Education Section -->
@@ -78,92 +116,145 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section class="section">
-            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+        <!-- Pixel Art Projects Section -->
+        <section class="section pixel-section" id="projects">
+            <h2 class="retro-title">
+                <span class="blink">►</span> FEATURED PROJECTS <span class="blink">◄</span>
+            </h2>
             
-            <div class="project-item">
-                <div class="project-header">
-                    <h3>Project Title 1</h3>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/project1" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+            <div class="projects-grid">
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">🤖</span>
+                        <h3>AI Project Name</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Stack:</strong> Python • TensorFlow • OpenCV</p>
+                        <p>Built a neural network that achieved X% accuracy on [dataset]. Implemented custom architecture with Y layers.</p>
+                        <ul class="achievement-list">
+                            <li>⚡ Reduced training time by 40%</li>
+                            <li>📊 Improved accuracy by 15%</li>
+                            <li>🚀 Deployed to production</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/project1" class="pixel-btn" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="pixel-btn" target="_blank">
+                            <i class="fas fa-play"></i> Live Demo
+                        </a>
                     </div>
                 </div>
-                <p class="tech-stack"><strong>Technologies:</strong> Python, TensorFlow, React, MongoDB</p>
-                <ul>
-                    <li>Developed a machine learning model that achieved X% accuracy in [specific task]</li>
-                    <li>Implemented [specific algorithm/feature] to improve performance by Y%</li>
-                    <li>Collaborated with a team of Z students using Git for version control</li>
-                </ul>
-            </div>
 
-            <div class="project-item">
-                <div class="project-header">
-                    <h3>Project Title 2</h3>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/project2" target="_blank"><i class="fab fa-github"></i> Code</a>
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">📊</span>
+                        <h3>Data Science Project</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Stack:</strong> Python • pandas • scikit-learn</p>
+                        <p>Analyzed 1M+ data points to extract insights. Built predictive models with X% precision.</p>
+                        <ul class="achievement-list">
+                            <li>💾 Processed 10GB+ of data</li>
+                            <li>📈 Created interactive visualizations</li>
+                            <li>🔍 Discovered key patterns</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/project2" class="pixel-btn" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
                     </div>
                 </div>
-                <p class="tech-stack"><strong>Technologies:</strong> Java, Spring Boot, PostgreSQL</p>
-                <ul>
-                    <li>Built a full-stack application serving X users with Y features</li>
-                    <li>Designed and optimized database schema reducing query time by Z%</li>
-                    <li>Implemented RESTful APIs following industry best practices</li>
-                </ul>
-            </div>
 
-            <div class="project-item">
-                <div class="project-header">
-                    <h3>Project Title 3</h3>
-                    <div class="project-links">
-                        <a href="https://github.com/yourusername/project3" target="_blank"><i class="fab fa-github"></i> Code</a>
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">🌐</span>
+                        <h3>Web Application</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Stack:</strong> React • Node.js • MongoDB</p>
+                        <p>Full-stack app with real-time features serving X users. Scalable architecture with microservices.</p>
+                        <ul class="achievement-list">
+                            <li>⚙️ Built RESTful APIs</li>
+                            <li>🔐 Implemented authentication</li>
+                            <li>☁️ Deployed on AWS</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="https://github.com/yourusername/project3" class="pixel-btn" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
                     </div>
                 </div>
-                <p class="tech-stack"><strong>Technologies:</strong> C++, OpenCV, ROS</p>
-                <ul>
-                    <li>Created a computer vision system for [specific application]</li>
-                    <li>Processed real-time data from [sensors/cameras] at X fps</li>
-                    <li>Published findings in [venue] or presented at [event]</li>
-                </ul>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section class="section">
-            <h2><i class="fas fa-code"></i> Technical Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">R</span>
+        <!-- Skills with Progress Bars -->
+        <section class="section skills-section" id="skills">
+            <h2 class="retro-title">
+                <span class="blink">►</span> SKILL TREE <span class="blink">◄</span>
+            </h2>
+            
+            <div class="skills-container-new">
+                <div class="skill-category-new">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span>Python</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span>JavaScript</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span>Java/C++</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-label">
+                                <span>SQL</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Frameworks & Libraries</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Spring Boot</span>
-                        <span class="skill-tag">scikit-learn</span>
+
+                <div class="skill-category-new">
+                    <h3><i class="fas fa-brain"></i> ML/AI Frameworks</h3>
+                    <div class="skill-tags-retro">
+                        <span class="retro-tag">TensorFlow</span>
+                        <span class="retro-tag">PyTorch</span>
+                        <span class="retro-tag">Keras</span>
+                        <span class="retro-tag">scikit-learn</span>
+                        <span class="retro-tag">OpenCV</span>
+                        <span class="retro-tag">Hugging Face</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools & Technologies</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
+
+                <div class="skill-category-new">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-tags-retro">
+                        <span class="retro-tag">Git</span>
+                        <span class="retro-tag">Docker</span>
+                        <span class="retro-tag">Linux</span>
+                        <span class="retro-tag">AWS</span>
+                        <span class="retro-tag">MongoDB</span>
+                        <span class="retro-tag">PostgreSQL</span>
+                        <span class="retro-tag">React</span>
+                        <span class="retro-tag">Node.js</span>
                     </div>
                 </div>
             </div>
@@ -215,10 +306,31 @@
         </section>
 
         <!-- Footer -->
-        <footer class="footer">
-            <p>Last Updated: December 2025</p>
-            <div class="download-section">
-                <a href="resume.pdf" class="download-btn" download><i class="fas fa-download"></i> Download PDF Resume</a>
+        <footer class="retro-footer">
+            <div class="visitor-counter">
+                <img src="https://hit.yhype.me/github/profile?user_id=YOUR_GITHUB_ID" alt="Visitor Count">
+            </div>
+            
+            <div class="social-buttons">
+                <a href="https://github.com/yourusername" target="_blank">
+                    <img src="https://img.shields.io/github/followers/yourusername?style=social" alt="GitHub">
+                </a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn">
+                </a>
+                <a href="mailto:your.email@university.edu">
+                    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" alt="Email">
+                </a>
+            </div>
+            
+            <div class="footer-text">
+                <p class="blink-slow">⚡ Currently seeking research internship opportunities ⚡</p>
+                <p>Made with ❤️ and lots of ☕ | Last updated: <span id="lastUpdated"></span></p>
+                <p>© 2025 Your Name. All rights reserved.</p>
+            </div>
+            
+            <div class="back-to-top">
+                <a href="#" class="pixel-btn">↑ Back to Top</a>
             </div>
         </footer>
     </div>
