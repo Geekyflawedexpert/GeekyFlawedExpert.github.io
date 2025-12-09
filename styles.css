@@ -22,6 +22,20 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-gray);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Neural Network Canvas Background */
+#neuralNetwork {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+    pointer-events: none;
 }
 
 .container {
@@ -184,6 +198,137 @@ body {
     color: #666;
 }
 
+/* ML-themed Animations for Interest Cards */
+.interest-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Machine Learning Card - Floating Particles */
+.ml-animation .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.ml-animation .particles::before,
+.ml-animation .particles::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatParticles 3s infinite ease-in-out;
+}
+
+.ml-animation .particles::before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.ml-animation .particles::after {
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+@keyframes floatParticles {
+    0%, 100% {
+        transform: translateY(100%) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100%) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Data Science Card - Data Flow Animation */
+.data-animation .data-flow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(52, 152, 219, 0.1) 50%, 
+        transparent 100%);
+    animation: dataFlow 2s infinite linear;
+}
+
+@keyframes dataFlow {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Software Engineering Card - Matrix Effect */
+.code-animation .code-matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.code-animation .code-matrix::before,
+.code-animation .code-matrix::after {
+    content: '01';
+    position: absolute;
+    font-family: monospace;
+    font-size: 10px;
+    color: var(--secondary-color);
+    opacity: 0;
+    animation: matrixRain 4s infinite;
+}
+
+.code-animation .code-matrix::before {
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.code-animation .code-matrix::after {
+    right: 30%;
+    animation-delay: 2s;
+}
+
+@keyframes matrixRain {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(120px);
+        opacity: 0;
+    }
+}
+
+/* Enhanced hover effects for interest cards */
+.interest-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.interest-item:hover i {
+    animation: pulse 1s infinite;
+}
+
 /* Projects Styles */
 .project-item {
     margin-bottom: 30px;
@@ -269,6 +414,26 @@ body {
     font-size: 0.9em;
     transition: transform 0.3s, background-color 0.3s;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.skill-tag:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .skill-tag:hover {
@@ -428,6 +593,15 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
     }
 }
 
