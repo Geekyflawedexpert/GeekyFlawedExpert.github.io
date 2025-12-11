@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOUR NAME.DEV</title>
+    <title>Abhav Singh — Finance & Technology Enthusiast</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -26,20 +26,23 @@
             </div>
             
             <div class="pixel-avatar">
-                <img src="profile.jpg" alt="Profile" class="pixel-img" id="profileImg">
+                <picture>
+                    <source srcset="images/profile.webp" type="image/webp">
+                    <img src="images/profile.jpg" alt="Abhav Singh" class="pixel-img" id="profileImg" width="512" height="512">
+                </picture>
             </div>
             
-            <div class="glitch-text">
-                <h1 data-text="YOUR NAME">YOUR NAME</h1>
+                <div class="glitch-text">
+                <h1 data-text="Abhav Singh">Abhav Singh</h1>
                 <div class="typing-effect">
                     <span id="typedText"></span><span class="cursor">|</span>
                 </div>
             </div>
             
             <div class="retro-badges">
-                <img src="https://img.shields.io/badge/Status-Open_to_Research-brightgreen?style=for-the-badge" alt="Status">
-                <img src="https://img.shields.io/badge/Location-University_Name-blue?style=for-the-badge" alt="Location">
-                <img src="https://img.shields.io/badge/GPA-3.X%2F4.0-orange?style=for-the-badge" alt="GPA">
+                <img src="https://img.shields.io/badge/Status-Open_to_Opportunities-brightgreen?style=for-the-badge" alt="Status">
+                <img src="https://img.shields.io/badge/Location-IIT_Bombay-blue?style=for-the-badge" alt="Location">
+                <img src="https://img.shields.io/badge/CGPA-8.93-orange?style=for-the-badge" alt="CGPA">
             </div>
         </header>
 
@@ -48,8 +51,8 @@
             <a href="#about"><i class="fas fa-user"></i> About</a>
             <a href="#projects"><i class="fas fa-code"></i> Projects</a>
             <a href="#skills"><i class="fas fa-laptop-code"></i> Skills</a>
-            <a href="mailto:your.email@university.edu"><i class="fas fa-envelope"></i> Contact</a>
-            <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="mailto:abhav.singh@iitb.ac.in"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="https://github.com/GeekyFlawedExpert" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             <a href="resume.pdf" download><i class="fas fa-download"></i> Resume</a>
         </div>
 
@@ -64,15 +67,13 @@
             <div class="terminal-body">
                 <p class="terminal-line"><span class="prompt">$</span> cat about.txt</p>
                 <p class="terminal-output">
-                    Hey there! 👋 I'm a passionate [Year] student at [University Name] studying [Major].
+                    I'm Abhav Singh — B.S. (Economics) at IIT Bombay (2023–27), CGPA 8.93. Pursuing a Minor in Data Science & Artificial Intelligence (C‑MInDS).
                     <br><br>
-                    I'm on a quest to push the boundaries of AI and machine learning. Currently seeking 
-                    research internship opportunities where I can contribute to innovative projects and 
-                    learn from brilliant minds.
+                    Currently a Business Finance Intern at Bank of Baroda, where I analyze financial metrics, build predictive models for financial behavior, and generate strategic insights for credit and fee structures.
                     <br><br>
-                    <span class="highlight">Research Interests:</span> Machine Learning • Deep Learning • Computer Vision • NLP
-                    <br>
-                    <span class="highlight">Fun Fact:</span> I debug with print statements and I'm not ashamed 🐛
+                    Prior internships include Predictive Modeling at BNP Paribas Mutual Fund and Web Parsing for Mirae Asset. I'm passionate about applying data science & ML to solve complex problems in finance and policy.
+                    <br><br>
+                    Contact: <a href="mailto:abhav.singh@iitb.ac.in">abhav.singh@iitb.ac.in</a> • +91 88586 63331
                 </p>
             </div>
         </section>
@@ -82,12 +83,13 @@
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
             <div class="education-item">
                 <div class="edu-header">
-                    <h3>University Name</h3>
-                    <span class="date">Expected Graduation: Month Year</span>
+                    <h3>Indian Institute of Technology Bombay</h3>
+                    <span class="date">2023 – 2027</span>
                 </div>
-                <p class="degree">Bachelor of Science in Computer Science</p>
-                <p><strong>GPA:</strong> 3.X/4.0</p>
-                <p><strong>Relevant Coursework:</strong> Data Structures, Algorithms, Machine Learning, Database Systems, Computer Networks, Operating Systems</p>
+                <p class="degree">B.S. in Economics</p>
+                <p><strong>CGPA:</strong> 8.93</p>
+                <p><strong>Minor:</strong> Data Science & Artificial Intelligence (C‑MInDS)</p>
+                <p><strong>Notable:</strong> Achieved 99.71 percentile in JEE Main and 99.04 percentile in JEE Advanced.</p>
             </div>
         </section>
 
@@ -119,73 +121,58 @@
         <!-- Pixel Art Projects Section -->
         <section class="section pixel-section" id="projects">
             <h2 class="retro-title">
-                <span class="blink">►</span> FEATURED PROJECTS <span class="blink">◄</span>
+                <span class="blink">►</span> SELECTED PROJECTS <span class="blink">◄</span>
             </h2>
             
             <div class="projects-grid">
                 <div class="project-card pixel-card">
                     <div class="card-header">
-                        <span class="card-icon">🤖</span>
-                        <h3>AI Project Name</h3>
+                        <span class="card-icon">📉</span>
+                        <h3>Impact of CDS Spread Changes on U.S. Banking</h3>
                     </div>
                     <div class="card-body">
-                        <p><strong>Stack:</strong> Python • TensorFlow • OpenCV</p>
-                        <p>Built a neural network that achieved X% accuracy on [dataset]. Implemented custom architecture with Y layers.</p>
-                        <ul class="achievement-list">
-                            <li>⚡ Reduced training time by 40%</li>
-                            <li>📊 Improved accuracy by 15%</li>
-                            <li>🚀 Deployed to production</li>
-                        </ul>
+                        <p><strong>Research:</strong> Panel regression with fixed effects to study credit risk pricing across U.S. banks using CDS data.</p>
+                        <p>Analyzed how CDS spread shifts influence bank equity & bond pricing. Implemented panel regressions and robustness checks.</p>
                     </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/yourusername/project1" class="pixel-btn" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                        <a href="#" class="pixel-btn" target="_blank">
-                            <i class="fas fa-play"></i> Live Demo
-                        </a>
+                </div>
+
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">⚖️</span>
+                        <h3>Option Pricing Models — FinSearch</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Implemented Black–Scholes and Binomial Tree models and Monte Carlo simulations (8k iterations) to estimate option prices with >90% accuracy.</p>
+                    </div>
+                </div>
+
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">�</span>
+                        <h3>Equity Research Automation</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Built automated pipelines for equity research using Python: data fetching, ratio analysis, SMA/EMA, volatility and correlation metrics.</p>
+                    </div>
+                </div>
+
+                <div class="project-card pixel-card">
+                    <div class="card-header">
+                        <span class="card-icon">🤖</span>
+                        <h3>Tools for Algorithmic Trading</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Designed a no-code trading platform using LangChain, Pinecone embeddings and an LLM to generate algorithmic trading strategies from prompts.</p>
                     </div>
                 </div>
 
                 <div class="project-card pixel-card">
                     <div class="card-header">
                         <span class="card-icon">📊</span>
-                        <h3>Data Science Project</h3>
+                        <h3>Optimal Control of Markov Decision Process</h3>
                     </div>
                     <div class="card-body">
-                        <p><strong>Stack:</strong> Python • pandas • scikit-learn</p>
-                        <p>Analyzed 1M+ data points to extract insights. Built predictive models with X% precision.</p>
-                        <ul class="achievement-list">
-                            <li>💾 Processed 10GB+ of data</li>
-                            <li>📈 Created interactive visualizations</li>
-                            <li>🔍 Discovered key patterns</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/yourusername/project2" class="pixel-btn" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card pixel-card">
-                    <div class="card-header">
-                        <span class="card-icon">🌐</span>
-                        <h3>Web Application</h3>
-                    </div>
-                    <div class="card-body">
-                        <p><strong>Stack:</strong> React • Node.js • MongoDB</p>
-                        <p>Full-stack app with real-time features serving X users. Scalable architecture with microservices.</p>
-                        <ul class="achievement-list">
-                            <li>⚙️ Built RESTful APIs</li>
-                            <li>🔐 Implemented authentication</li>
-                            <li>☁️ Deployed on AWS</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/yourusername/project3" class="pixel-btn" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
+                        <p>Developed optimal control strategies in MDPs via linear programming to optimize long-term rewards and reduce costs.</p>
                     </div>
                 </div>
             </div>
@@ -210,24 +197,24 @@
                         </div>
                         <div class="skill-bar-item">
                             <div class="skill-label">
-                                <span>JavaScript</span>
-                                <span class="skill-level">Advanced</span>
+                                <span>C++</span>
+                                <span class="skill-level">Intermediate</span>
                             </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
                         </div>
                         <div class="skill-bar-item">
                             <div class="skill-label">
-                                <span>Java/C++</span>
-                                <span class="skill-level">Intermediate</span>
+                                <span>JavaScript</span>
+                                <span class="skill-level">Beginner</span>
                             </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 35%"></div></div>
                         </div>
                         <div class="skill-bar-item">
                             <div class="skill-label">
                                 <span>SQL</span>
-                                <span class="skill-level">Advanced</span>
+                                <span class="skill-level">Beginner</span>
                             </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 35%"></div></div>
                         </div>
                     </div>
                 </div>
@@ -267,30 +254,59 @@
             <div class="experience-item">
                 <div class="exp-header">
                     <div>
-                        <h3>Position Title</h3>
-                        <p class="company">Company/Organization Name</p>
+                        <h3>Business Finance Intern</h3>
+                        <p class="company">Bank of Baroda</p>
                     </div>
-                    <span class="date">Month Year - Present</span>
+                    <span class="date">Jul 2025 - Present</span>
                 </div>
                 <ul>
-                    <li>Describe your key responsibilities and achievements</li>
-                    <li>Quantify impact where possible (e.g., improved X by Y%)</li>
-                    <li>Highlight technical skills and tools used</li>
+                    <li>Analyzed NIMs across 10+ private and PSU banks to identify key drivers (yields, CASA, credit) and inform fee/interest strategies.</li>
+                    <li>Reviewed ₹14,495 crore non-interest income by disaggregating 10+ fee sources (e.g., RAM, digital) and identifying revenue gaps.</li>
+                    <li>Built dashboards and produced insights used by senior management to prioritise fee optimisation and product changes.</li>
                 </ul>
             </div>
 
             <div class="experience-item">
                 <div class="exp-header">
                     <div>
-                        <h3>Previous Position</h3>
-                        <p class="company">Previous Company/Organization</p>
+                        <h3>Predictive Modeling Intern — Financial Behavior</h3>
+                        <p class="company">BNP Paribas Mutual Fund</p>
                     </div>
-                    <span class="date">Month Year - Month Year</span>
+                    <span class="date">Jun 2025 - Aug 2025</span>
                 </div>
                 <ul>
-                    <li>Key accomplishment or responsibility</li>
-                    <li>Technical contribution or learning outcome</li>
-                    <li>Team collaboration or leadership experience</li>
+                    <li>Built a Random Forest model to predict scheme reinvestment using customer traits and transaction history.</li>
+                    <li>Backtested predictions on 3 years of monthly data for 700k investors to estimate reinvestment likelihood and validate model robustness.</li>
+                    <li>Worked with large-scale financial tables and implemented feature engineering for time-series investor behavior.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Research Intern — Credit Risk Pricing</h3>
+                        <p class="company">BITS Pilani (Hyderabad)</p>
+                    </div>
+                    <span class="date">Jun 2025 - Jul 2025</span>
+                </div>
+                <ul>
+                    <li>Conducted research on how Credit Default Swap (CDS) spread changes impact U.S. bank equity and bond pricing via credit risk channels.</li>
+                    <li>Employed panel regression with fixed effects to analyze credit risk pricing across multiple U.S. banks using CDS spread data.</li>
+                    <li>Worked under the guidance of Assoc. Dean R&D Prof. Swati Alok in the Dept. of Economics & Finance.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <h3>Software Development — Web Parsing</h3>
+                        <p class="company">Mirae Asset Management</p>
+                    </div>
+                    <span class="date">Dec 2024 - Jan 2025</span>
+                </div>
+                <ul>
+                    <li>Parsed financial news to assess evolving debt risks across 300+ companies, aiding the credit team with timely insights.</li>
+                    <li>Filtered credit-relevant news via URL keyword heuristics, summarized articles, and assigned credit-relevance scores for triage.</li>
                 </ul>
             </div>
         </section>
@@ -299,9 +315,10 @@
         <section class="section">
             <h2><i class="fas fa-award"></i> Honors & Awards</h2>
             <ul class="awards-list">
-                <li><strong>Award Name</strong> - Description or awarding organization (Year)</li>
-                <li><strong>Scholarship/Grant Name</strong> - University or organization (Year)</li>
-                <li><strong>Competition/Hackathon</strong> - Placement or achievement (Year)</li>
+                <li><strong>JEE Mains:</strong> 99.71 percentile (among ~1.2M applicants)</li>
+                <li><strong>JEE Advanced:</strong> 99.04 percentile (among ~189k applicants)</li>
+                <li><strong>Academic:</strong> Secured perfect AA grade in 3 rigorous courses</li>
+                <li><strong>Entrepreneurship:</strong> Incubated ClimateVision — secured INR 3L pre‑incubation grant (Desai Sethi School of Entrepreneurship)</li>
             </ul>
         </section>
 
@@ -312,21 +329,21 @@
             </div>
             
             <div class="social-buttons">
-                <a href="https://github.com/yourusername" target="_blank">
-                    <img src="https://img.shields.io/github/followers/yourusername?style=social" alt="GitHub">
+                <a href="https://github.com/GeekyFlawedExpert" target="_blank">
+                    <img src="https://img.shields.io/github/followers/GeekyFlawedExpert?style=social" alt="GitHub">
                 </a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                <a href="https://linkedin.com/in/abhav-singh" target="_blank">
                     <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn">
                 </a>
-                <a href="mailto:your.email@university.edu">
-                    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" alt="Email">
+                <a href="mailto:abhav.singh@iitb.ac.in">
+                    <img src="https://img.shields.io/badge/Email-abhav.singh@iitb.ac.in-red?style=for-the-badge&logo=gmail" alt="Email">
                 </a>
             </div>
             
             <div class="footer-text">
                 <p class="blink-slow">⚡ Currently seeking research internship opportunities ⚡</p>
                 <p>Made with ❤️ and lots of ☕ | Last updated: <span id="lastUpdated"></span></p>
-                <p>© 2025 Your Name. All rights reserved.</p>
+                <p>© 2025 Abhav Singh. All rights reserved.</p>
             </div>
             
             <div class="back-to-top">

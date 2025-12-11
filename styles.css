@@ -333,18 +333,51 @@ body {
 }
 
 .pixel-card {
-    background: var(--bg-darker);
+    background: linear-gradient(135deg, var(--bg-darker) 0%, #0d0d0d 100%);
     border: 3px solid var(--secondary);
     border-radius: 8px;
     padding: 0;
-    transition: all 0.3s;
+    position: relative;
     overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.pixel-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.15), transparent);
+    transition: left 0.6s;
+}
+
+.pixel-card:hover::before {
+    left: 100%;
 }
 
 .pixel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 255, 159, 0.3);
     border-color: var(--primary);
+}
+
+.pixel-card::after {
+    content: '🚀';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 2.5em;
+    opacity: 0.1;
+    transition: all 0.4s;
+}
+
+.pixel-card:hover::after {
+    opacity: 0.4;
+    transform: rotate(-15deg) scale(1.3);
+    filter: drop-shadow(0 0 10px var(--secondary));
 }
 
 .card-header {
@@ -353,25 +386,52 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    transition: all 0.3s;
+}
+
+.pixel-card:hover .card-header {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
 }
 
 .card-icon {
     font-size: 2em;
+    transition: all 0.4s;
+}
+
+.pixel-card:hover .card-icon {
+    transform: rotate(360deg) scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
 }
 
 .card-header h3 {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.9em;
     color: var(--bg-dark);
+    transition: all 0.3s;
+}
+
+.pixel-card:hover .card-header h3 {
+    transform: translateX(5px);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .card-body {
     padding: 20px;
+    transition: all 0.3s;
+}
+
+.pixel-card:hover .card-body {
+    transform: translateY(-3px);
 }
 
 .card-body p {
     margin-bottom: 10px;
     color: var(--text-dim);
+    transition: color 0.3s;
+}
+
+.pixel-card:hover .card-body p {
+    color: var(--text-light);
 }
 
 .achievement-list {
@@ -382,6 +442,21 @@ body {
 .achievement-list li {
     padding: 5px 0;
     color: var(--text-light);
+    position: relative;
+    padding-left: 20px;
+}
+
+.achievement-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    transition: all 0.3s;
+}
+
+.pixel-card:hover .achievement-list li::before {
+    color: var(--secondary);
+    animation: pulse-arrow 1.5s infinite;
 }
 
 .card-footer {
@@ -718,6 +793,188 @@ body {
     .retro-title {
         font-size: 1em;
     }
+}
+
+/* Experience Section Animations */
+.experience-item {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #151515 100%);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 159, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.experience-item:hover::before {
+    left: 100%;
+}
+
+.experience-item:hover {
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 255, 159, 0.3), 0 0 50px rgba(0, 212, 255, 0.2);
+    border-color: var(--secondary);
+}
+
+.experience-item::after {
+    content: '💼';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2.5em;
+    opacity: 0.15;
+    transition: all 0.4s;
+}
+
+.experience-item:hover::after {
+    opacity: 0.4;
+    transform: rotate(15deg) scale(1.2);
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.exp-header h3 {
+    color: var(--primary);
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 159, 0.3);
+    transition: all 0.3s;
+}
+
+.experience-item:hover .exp-header h3 {
+    color: var(--secondary);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    transform: translateX(5px);
+}
+
+.company {
+    color: var(--text-dim);
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.experience-item:hover .company {
+    color: var(--secondary);
+}
+
+.date {
+    color: var(--accent);
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 5px 12px;
+    background: rgba(255, 0, 110, 0.1);
+    border-radius: 20px;
+    border: 1px solid var(--accent);
+    transition: all 0.3s;
+}
+
+.experience-item:hover .date {
+    background: rgba(255, 0, 110, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+}
+
+.experience-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.experience-item ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: var(--text-light);
+    line-height: 1.7;
+    transition: all 0.3s;
+}
+
+.experience-item ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 8px;
+    color: var(--primary);
+    font-size: 1.2em;
+    transition: all 0.3s;
+}
+
+.experience-item:hover ul li::before {
+    color: var(--secondary);
+    transform: translateX(3px);
+    animation: pulse-arrow 1.5s infinite;
+}
+
+.experience-item:hover ul li {
+    color: #ffffff;
+}
+
+@keyframes pulse-arrow {
+    0%, 100% {
+        transform: translateX(3px);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(8px);
+        opacity: 0.7;
+    }
+}
+
+/* Education item styles */
+.education-item {
+    background: linear-gradient(135deg, var(--card-bg) 0%, #151515 100%);
+    border: 2px solid var(--secondary);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.4s;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+    border-color: var(--primary);
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.edu-header h3 {
+    color: var(--secondary);
+    font-size: 1.3em;
+    margin-bottom: 5px;
+}
+
+.degree {
+    color: var(--primary);
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 /* Scrollbar */
