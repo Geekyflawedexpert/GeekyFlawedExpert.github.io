@@ -71,7 +71,7 @@ function initStarfield() {
 
 // Typing Effect
 function initTypingEffect() {
-    const text = "Finance & Technology Enthusiast | Data Science & ML Practitioner";
+    const text = "Finance & Technology Enthusiast | Aspiring ML Researcher";
     const typedElement = document.getElementById('typedText');
     
     if (!typedElement) return;
